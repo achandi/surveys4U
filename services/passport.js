@@ -1,9 +1,12 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
-const keys = require('../config/keys');
+const keys = require('../config/dev');
+
+//Note: cant import class model using requre statements, need to rely on mongoose
 
 const User = mongoose.model('users');
+// above creates new user class
 
 passport.serializeUser((user, done) => {
   done(null, user.id); //user.id is the mongo generated id, not google profile.id below, this is better if u use multiple oauth
@@ -12,14 +15,13 @@ passport.deserializeUser(async (id, done) => {
   const user = await User.findById(id); //User class not user instance, assume mongoose methods return promises
   done(null, user);
 });
-// above creates new user class
-//Note: cant import class model using requre statements, need to rely on mongoose
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
+      proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
