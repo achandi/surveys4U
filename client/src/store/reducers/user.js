@@ -1,14 +1,14 @@
-import * as actionTypes from '../actions/actionTypes';
+import { FETCH_USER } from '../actions/actionTypes'
 
-const initialState = null;
+const initialState = null
 
 export default (state = initialState, actions) => {
-  console.log('Data', actions);
+  console.log('Data', actions)
   switch (actions.type) {
-    case actionTypes.FETCH_USER:
-      console.log(actions.data);
-      return actions.data || false;
+    case FETCH_USER:
+      console.log(actions.data)
+      return actions.data || false
     default:
       return state;
   }
-};
+}

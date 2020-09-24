@@ -10,6 +10,7 @@
 // $beige-light: #d0d1cd;
 // $beige-lighter: #eff0eb;
 
+
 // Update Bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif
 // $grey-dark: $brown;
@@ -27,23 +28,26 @@ $danger: #DB4437
 // $control-border-width: 2px;
 // $input-border-color: transparent;
 
-// $input-shadow: none;
-// .button 
-//     width: 150px
-//     @include until($tablet) {
-//         width: 25%
-//     }
-
+$section-padding: 1rem 1rem	
 // Import only what you need from Bulma
 @import '../node_modules/bulma/sass/utilities/_all.sass'
 @import '../node_modules/bulma/sass/base/_all.sass'
 @import '../node_modules/bulma/sass/elements/button.sass'
+@import '../node_modules/bulma/sass/components/card.sass'
+@import '../node_modules/bulma/sass/elements/image.sass'
+@import '../node_modules/bulma/sass/components/media.sass'
+@import '../node_modules/bulma/sass/components/message.sass'
+@import '../node_modules/bulma/sass/elements/box.sass'
 @import '../node_modules/bulma/sass/elements/container.sass'
-// @import '../node_modules/bulma/sass/elements/form.sass';
+@import '../node_modules/bulma/sass/form/_all.sass'
 @import '../node_modules/bulma/sass/elements/title.sass'
 @import '../node_modules/bulma/sass/components/navbar.sass'
+@import '../node_modules/bulma/sass/components/panel.sass'
 @import '../node_modules/bulma/sass/layout/hero.sass'
 @import '../node_modules/bulma/sass/layout/section.sass'
+@import '../node_modules/bulma/sass/elements/notification.sass'
+@import '../node_modules/bulma/sass/grid/columns.sass'
+@import '../node_modules/bulma/sass/elements/table.sass'
 
 .icon
     display: flex
@@ -54,23 +58,9 @@ $danger: #DB4437
     @include mobile
         font-size: .70rem
 
-    ////////////////////////////////////////////////
-// NUCLEAR
-////////////////////////////////////////////////
-
-// .herot
-//     position: relative
-//     height: 300px
-//     background-image: linear-gradient(#ff9d2f, #ff6126)
-//     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw))
-
-// h1
-//     margin: 0
-//     padding: 100px 0
-//     font: 44px "Arial"
-//     color: white
-//     text-align: center
-
-// .bottom
-//     margin-top: -5vw
-//     background-image: linear-gradient(135deg, #777, #111)
+.is-fab
+    position: fixed
+    right: 2rem
+    bottom: 2rem
+    :hover
+        color: bulmaDarken($primary, 2.5%)

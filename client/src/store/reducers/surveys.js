@@ -1,5 +1,12 @@
-const initialState = { blah: 1 };
+import { FETCH_SURVEYS, SUBMIT_SURVEY } from '../actions/actionTypes'
 
-export default (state = initialState, actions) => {
-  return state;
-};
+const initialState = false
+export default (state = initialState, action) => {
+  console.log(action)
+  switch (action.type) {
+    case FETCH_SURVEYS:
+      return action.data;
+      default:
+        return state;
+  }
+}
